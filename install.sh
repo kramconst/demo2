@@ -61,46 +61,6 @@ prepare_system() {
     fi
 }
 
-# --- ПРОМО БЛОК ---
-show_promo() {
-    clear
-    echo ""
-    echo -e "${MAGENTA}╔══════════════════════════════════════════════════════════════╗${NC}"
-    echo -e "${MAGENTA}║         ХОСТИНГ, КОТОРЫЙ РАБОТАЕТ СО СКИДКОЙ ДО -60%         ║${NC}"
-    echo -e "${MAGENTA}╚══════════════════════════════════════════════════════════════╝${NC}"
-    echo ""
-
-    echo -e "${CYAN}🌍 ЛОКАЦИИ: РФ И ЕВРОПА${NC}"
-    echo -e "${WHITE}  >>> https://vk.cc/ct29NQ${NC}"
-    printf "  ${YELLOW}%-12s${NC} : ${WHITE}%s${NC}\n" "OFF60" "60% скидка на первый месяц"
-    printf "  ${YELLOW}%-12s${NC} : ${WHITE}%s${NC}\n" "antenka20" "Буст 20% + 3% (при оплате за 3 мес)"
-    printf "  ${YELLOW}%-12s${NC} : ${WHITE}%s${NC}\n" "antenka6" "Буст 15% + 5% (при оплате за 6 мес)"
-    printf "  ${YELLOW}%-12s${NC} : ${WHITE}%s${NC}\n" "antenka12" "Буст 5% + 5% (при оплате за 12 мес)"
-
-    echo -e "\n${CYAN}🇧🇾 ЛОКАЦИЯ: БЕЛАРУСЬ${NC}"
-    echo -e "${WHITE}  >>> https://vk.cc/cUxAhj${NC}"
-    printf "  ${YELLOW}%-12s${NC} : ${WHITE}%s${NC}\n" "OFF60" "60% скидка на первый месяц"
-
-    echo ""
-    echo -e "\n${YELLOW}Генерация QR-кода основного партнера... (3 сек)${NC}"
-    for i in {3..1}; do
-        echo -ne "$i..."
-        sleep 1
-    done
-    echo ""
-
-    echo -e "\n${WHITE}" 
-    if command -v qrencode &> /dev/null; then
-        qrencode -t ANSIUTF8 "https://vk.cc/ct29NQ"
-    else
-        echo "QR-код не загрузился, используйте ссылки выше."
-    fi
-    echo -e "${NC}"
-    
-    echo -e "${GREEN}Сканируйте камерой телефона!${NC}"
-    echo ""
-    read -p "Нажмите enter для настройки каскадного скрипта..."
-}
 
 # --- ИНСТРУКЦИЯ (ТЕКСТ ВНУТРИ КОДА) ---
 show_instructions() {
@@ -371,5 +331,4 @@ show_menu() {
 # --- ЗАПУСК ---
 check_root
 prepare_system
-show_promo
 show_menu
